@@ -6,16 +6,14 @@ pool:
    - agent.name -equals RPLocalMac
    
 stages:
-- stage: BuildStage
-  displayName: 'Build Stage'
+- stage: Stage1
+  displayName: 'Create cert'
   jobs: 
-  - job: BuildJob1
-    displayName: 'Component 1 - Build job'
+  - job: CreateFile
+    displayName: 'Create File'
     steps:
-      - script: |
-          echo 'Build stage --> Inside Component 1 - Build Job'  
-  - job: BuildJob2
-    displayName: 'Component 2 - Build job'
-    steps:
-      - script: |
-          echo 'Build stage --> Inside Component 2 - Build Job'  
+      - task: AzurePowerShell@5
+        inputs:
+          ScriptType: 'InlineScript'
+          Inline: 'Get-Location'
+          azurePowerShellVersion: 'LatestVersion'
