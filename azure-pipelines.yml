@@ -1,1 +1,21 @@
-xx
+trigger: none
+
+pool:
+  name: RPLocalPool
+  demands:
+   - agent.name -equals RPLocalMac
+   
+stages:
+- stage: BuildStage
+  displayName: 'Build Stage'
+  jobs: 
+  - job: BuildJob1
+    displayName: 'Component 1 - Build job'
+    steps:
+      - script: |
+          echo 'Build stage --> Inside Component 1 - Build Job'  
+  - job: BuildJob2
+    displayName: 'Component 2 - Build job'
+    steps:
+      - script: |
+          echo 'Build stage --> Inside Component 2 - Build Job'  
