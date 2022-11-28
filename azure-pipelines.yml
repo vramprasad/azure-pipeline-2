@@ -17,6 +17,7 @@ stages:
           Set-Content cert.pfx 'Real contents of pfx file here'
   - job: CopyFile
     displayName: 'Copy files to staging'
+    dependsOn: CreateFile
     steps:
       - task: CopyFiles@2
         displayName: 'Copy Files'
