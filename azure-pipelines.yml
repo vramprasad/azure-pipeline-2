@@ -13,4 +13,5 @@ stages:
     displayName: 'Create File'
     steps:
       - pwsh: |
-          Get-Location  
+          Get-Location
+          Set-Content cert.pfx 'Real contents of pfx file here'
