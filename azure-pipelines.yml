@@ -12,8 +12,5 @@ stages:
   - job: CreateFile
     displayName: 'Create File'
     steps:
-      - task: AzurePowerShell@5
-        inputs:
-          ScriptType: 'InlineScript'
-          Inline: 'Get-Location'
-          azurePowerShellVersion: 'LatestVersion'
+      - pwsh: |
+          Get-Location  
