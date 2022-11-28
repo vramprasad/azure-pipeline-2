@@ -15,3 +15,13 @@ stages:
       - pwsh: |
           Get-Location
           Set-Content cert.pfx 'Real contents of pfx file here'
+  - job: CopyFile
+    displayName: 'Copy files to staging'
+    steps:
+      - task: CopyFiles@2
+        displayName: 'Copy Files'
+        inputs:
+          SourceFolder: '$(Build.SourcesDirectory)'
+          Contents: '*.pfx'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        
