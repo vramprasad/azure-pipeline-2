@@ -21,4 +21,10 @@ stages:
           SourceFolder: '$(Build.SourcesDirectory)'
           Contents: '*.pfx'
           TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish PFX file'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)'
+          artifact: 'deploy_pfx'
+          publishLocation: 'pipeline'
         
